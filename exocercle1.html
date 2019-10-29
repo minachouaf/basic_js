@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Creation cercle</title>
+
+<style type="text/css">
+	
+	.moncercle{
+
+
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  border:2px solid red; 
+  position:absolute;
+  top:20px;
+  left:20px;
+ color:transparent;
+	}
+
+	body{
+
+
+		width:100vw;
+		height:100vh;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div   class="moncercle"></div>
+
+<script type="text/javascript">
+
+	const  AREA=document.body;
+    const  CIRCLE=document.querySelector(".moncercle");
+    var  windowWidth=window.innerWidth;
+    var    windowHeight=window.innerHeight;
+
+
+    function    mouseCoordonates(e){
+
+
+   var    horizontalPosition=windowWidth  + e.clientX+25;
+
+   var verticalPosition=windowHeight + e.clientY+25;
+
+
+   CIRCLE.style.left=horizontalPosition + 'px';
+   CIRCLE.style.top=verticalPosition + 'px';
+
+
+
+
+    }
+
+
+function   changeColorOnTouch(){
+
+
+    CIRCLE.style.backgroundColor="green";
+    CIRCLE.style.borderColor="green";
+}
+
+//AREA.addEventListener("mousemove",getCord,false);
+//CIRCLE.addEventListener("mouseenter",getColor,false);
+//CIRCLE.addEventListener("mouseleave",function(){c.removeAttribute("style");},false);
+
+</script>
+
+</body>
+
+
+</html>

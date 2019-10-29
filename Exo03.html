@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exo 03</title>
+</head>
+<body>
+
+<form  onsubmit="return false">
+
+<labe>Entrez votre nom </labe>
+
+<input   type="text"  id ="id03"/>
+<label  id="e1"></label><br>
+<input    type="submit" onclick="valider()">
+
+</form>
+
+
+</body>
+<script typec="text/javascript">
+	
+function valider(){
+     var f=document.getElementById("id03").value;
+  
+     if(f=="")
+         document.getElementById('e1').innerHTML="Remplir le champ vide";
+	 else
+         alert('operation bien effectue');
+
+}
+
+
+</script>
+</html>

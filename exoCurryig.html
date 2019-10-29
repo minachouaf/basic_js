@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+
+/*const  prod1=(a,b)=>a*b;
+prod1(3,4);
+
+const  prod2=(a)=>(b)=>a*b;
+ 
+document.writeln(prod2(3));
+document.writeln(prod2(3)(4));
+
+*/
+
+
+
+const compt =(f,g) =>(a)  => f(g(a));
+const  somme=(n)=>n+1;
+
+document.writeln(compt(somme,somme)(3));
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

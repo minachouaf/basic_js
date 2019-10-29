@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Creation cercle</title>
+
+<style type="text/css">
+	
+	.moncercle{
+
+
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  border:2px solid red; 
+  position:absolute;
+  top:20px;
+  left:20px;
+ color:transparent;
+	}
+
+	body{
+
+
+		width:100vw;
+		height:100vh;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+<div   class="moncercle"></div>
+
+<script type="text/javascript">
+	const  c=document.querySelector(".moncercle");
+	console.log(c);
+	console.log(c.style.top);
+    console.log(c.style.left);
+function   getCord(e){
+
+var x=(window.innerWidth+(e.clientX))+"px";
+var y=(window.innerWidth+(e.clientY))+"px";
+
+
+c.style.top=x;
+c.style.left=y;
+console.log(x,y);
+return [x,y];
+}
+
+
+function  getColor(){
+
+
+	const  c=document.querySelector(".moncercle");
+	c.style.backgroundColor="green";
+	c.style.BorderColor="green";
+
+}
+
+
+document.addEventListener("mousemove",getCord,false);
+c.addEventListener("mouseenter",getColor,false);
+c.addEventListener("mouseleave",function(){c.removeAttribute("style");},false);
+
+
+</script>
+
+</body>
+
+
+</html>

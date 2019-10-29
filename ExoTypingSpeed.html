@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Typing  Speed</title>
+	<style type="text/css">
+		
+		.c1{
+
+        height: 160px;
+        width: 100%;
+        background: black;
+        color: white;
+        font:Verdana, Geneva, sans-serif;
+		font-size:50px;
+
+		text-align:center;
+		vertical-align:middle;
+
+		}
+
+		h4{
+      
+      text-align:center;
+
+		}
+
+		textarea{
+
+			margin-left: 700px;
+		}
+
+		button{
+
+			background: white;
+			border-color: orange;
+			color:orange;
+			position: absolute;
+			margin-top: 200px;
+			margin-left: 10px;
+		}
+
+		.tim{
+      	margin: auto;
+      	width: 300px;
+      	border: 1px solid rgba(0,0,0,0.5);
+      	padding:5px 0;
+      	text-align: center;
+      	font-size: 1.5em;
+      	font-family: digital;
+      	margin-bottom: 10px;
+
+
+      }
+
+	</style>
+</head>
+
+<body>
+
+<div    class="c1">  Typing  Speed</div>
+
+<h4 id="hh">Les événement  permettent de déclencher une fonction selon</br>
+	qu'une action s'est produite ou non </h4></br></br></br></br>
+
+
+<textarea     id="tt" cols="80" rows="10"  placeholder="Recopie le texte en haut . le chrono démarre avec la saisie ."></textarea>
+
+<div class="chronometre">
+  <div class="tim">
+  	<span >0 h</span> :
+  	<span >0 min</span> :
+  	<span >0 s</span> :
+  	<span >0 ms</span>
+
+  </div>
+
+ 
+  
+  <button id="reset" onclick="reset()" >redémarer</button>
+</div>
+
+
+<script type="text/javascript">
+	
+	
+
+  /*la fonction getElementByTagName renvoie une liste des éléments portant le nom de balise donné ici "span".*/
+  var sp = document.getElementsByTagName("span");
+
+  var t;
+  var ms=0,s=0,mn=0,h=0;
+   
+   /*La fonction "start" démarre un appel répétitive de la fonction update_chrono par une cadence de 100 milliseconde en utilisant setInterval et désactive le bouton "start" */
+
+  function start(){
+   t =setInterval(update_chrono,100);
+   
+  
+  }
+  /*La fonction update_chrono incrémente le nombre de millisecondes par 1 <==> 1*cadence = 100 */
+  function update_chrono(){
+    ms+=1;
+    /*si ms=10 <==> ms*cadence = 1000ms <==> 1s alors on incrémente le nombre de secondes*/
+       if(ms==10){
+        ms=1;
+        s+=1;
+       }
+       /*on teste si s=60 pour incrémenter le nombre de minute*/
+       if(s==60){
+        s=0;
+        mn+=1;
+       }
+       if(mn==60){
+        mn=0;
+        h+=1;
+       }
+       /*afficher les nouvelle valeurs*/
+       sp[0].innerHTML=h+" h";
+       sp[1].innerHTML=mn+" min";
+       sp[2].innerHTML=s+" s";
+       sp[3].innerHTML=ms+" ms";
+
+  }
+  
+	/*on arrête le "timer" par clearInterval ,on réactive le bouton start */
+	function stop(){
+    clearInterval(t);
+   
+		
+	}
+  /*dans cette fonction on arrête le "timer" ,on réactive le bouton "start" et on initialise les variables à zéro */
+  function reset(){
+   clearInterval(t);
+   
+    ms=0,s=0,mn=0,h=0;
+    /*on accède aux différents span par leurs indice*/
+    sp[0].innerHTML=h+" h";
+    sp[1].innerHTML=mn+" min";
+    sp[2].innerHTML=s+" s";
+    sp[3].innerHTML=ms+" ms";
+      }
+
+
+var text = document.getElementById("tt");
+		    var h = document.getElementById("hh");
+      function select(e){
+		if(e.target.nodeName=='textarea')
+	{
+      start();
+	}
+if(text.innerHTML==h.innerHTML)
+	{
+      stop();
+	}
+	}
+
+	
+	window.addEventListener("load",select);
+
+
+</script>
+
+
+
+
+</body>
+</html>
